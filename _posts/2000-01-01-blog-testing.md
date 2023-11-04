@@ -1,4 +1,4 @@
-## This is not a blog post
+## syntax highlighting tests
 this is a test of automatic code syntax highlighting
 
 Code Block A
