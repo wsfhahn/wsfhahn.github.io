@@ -1,6 +1,6 @@
 # Local LLMs: Next-Level On-Device Intelligence
 
-For the past year, the world has witnessed an unprecidented race between competing AI startups and tech corporations to build the largest, smartest, most knowledgeable large language models possible. The discoveries they have made and the methods they have developed have since become available to end users.
+For the past year, the world has witnessed an unprecidented race between competing AI startups and tech corporations to build the largest, smartest, most knowledgeable large language models possible. Many of the discoveries they have made and the methods they have developed have since become available to end users.
 
 Models like GPT can only be interacted with through a web client, and cannot be run locally on your own hardware. This is frustrating, because OpenAI imposes limitations on ChatGPT which significantly restrict its ability to carry out logic.
 
