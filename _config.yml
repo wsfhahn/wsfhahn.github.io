@@ -4,13 +4,13 @@ description: "I blog about my engineering projects." # This will show up in plac
 
 # Email / Social media user names used by the minima theme:
 # All of these are optional and can be removed or commented out
-email: "example@mail.com"
-twitter_username: "twitteruser"
-github_username: "githubuser"
-linkedin_username: "linkedinuser"
+email: "wsfhahn@icloud.com"
+#twitter_username: "twitteruser"
+github_username: "wsfhahn"
+#linkedin_username: "linkedinuser"
 #facebook_username: username
 #flickr_username: username
-#instagram_username: username
+instagram_username: the.hahn.solo
 #pinterest_username: username
 #youtube_username: username
 #googleplus_username: +username
