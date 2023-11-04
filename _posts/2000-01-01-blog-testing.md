@@ -18,7 +18,7 @@ Code Block A
 
 Code Block B
 
-```
+```plaintext
 func mathLogic(num1: Double, num2: Double, oper: String) -> Double {
     var result: Double = 0
 
