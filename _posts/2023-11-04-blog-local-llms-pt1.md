@@ -22,20 +22,28 @@ To take advantage of all the power I have available and remove bottlenecks, I ha
 
 Before getting started, I'll make sure to install Xcode Command Line Tools. This will install tools like `git` and `make`.
 
-    xcode-select --install
+```plaintext
+xcode-select --install
+```
 
 Next, I need a space to store all the files involved in the project, so I'll create a directory for it in my home folder.
 
-    cd ~/
-    mkdir LocalLLMs && cd LocalLLMs
+```plaintext
+cd ~/
+mkdir LocalLLMs && cd LocalLLMs
+```
 
 Inside the LocalLLMs folder, I'll clone the [llama.cpp repo](https://github.com/ggerganov/llama.cpp) and `cd` into it.
 
-    git clone https://github.com/ggerganov/llama.cpp.git && cd llama.cpp
+```plaintext
+git clone https://github.com/ggerganov/llama.cpp.git && cd llama.cpp
+```
 
 Building on a Mac is easy. I'll run `make` with the `-j10` flag to use all 10 CPU cores.
 
-    make -j10
+```plaintext
+make -j10
+```
 
 No errors encountered! Now all that's left to do is to pick a large language model to run.
 
@@ -51,23 +59,29 @@ The model can be downloaded in many different quantization standards. Quanitizat
 
 With the model downloaded, I will run this command to move it from `~/Downloads/` to `~/LocalLLMs/llama.cpp/models/`:
 
-    cd ~/
-    mv Downloads/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf LocalLLMs/llama.cpp/models/
+```plaintext
+cd ~/
+mv Downloads/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf LocalLLMs/llama.cpp/models/
+```
 
 Now I can run the server and start chatting!
 
-### Starting the model
+### Starting the server
 
 I would prefer to use a web interface more reminiscent of ChatGPT as compared to interacting with the model completely programmatically, so I'll run the web server which was built with the earlier `make` command.
 
 I will set the context size to 8192 because that is the specification of the downloaded model.
 
-    cd LocalLLMs/llama.cpp
-    ./server -m models/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf -c 8192
+```plaintext
+cd LocalLLMs/llama.cpp
+./server -m models/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf -c 8192
+```
 
 To keep the model entirely in working memory and prevent the usage of any swap space, I could instead run it with the `--mlock` flag:
 
-    ./server -m models/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf -c 8192 --mlock
+```plaintext
+./server -m models/openassistant-llama2-13b-orca-8k-3319.Q8_0.gguf -c 8192 --mlock
+```
 
 Just like that, the server is starting! I can confirm that the server is running because pointing my browser to __127.0.0.1:8080__ presents the llama.cpp chat page.
 
