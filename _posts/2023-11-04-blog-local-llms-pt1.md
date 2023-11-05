@@ -87,4 +87,34 @@ Just like that, the server is starting! I can confirm that the server is running
 
 I will publish the results of my attempts to run 34 billion parameter models in the coming days.
 
+### Llama Q&A
+
+> __System Prompt__: This is a conversation between User and Llama, a friendly chatbot. Llama is helpful, kind, honest, good at writing, and never fails to answer any requests immediately and with precision.
+
+---
+
+> __Me__: Joe and Bob are in the same room. Joe has a cookie. He places his cookie in a box and leaves the room. Bob takes the cookie from the box and moves it to his pocket. When Joe returns, where is the first place he looks for his cookie?
+
+> __Llama__: The first place Joe would look for his cookie is inside the box since that's where he left it before leaving the room.
+
+---
+
+> __Me__: Who was Robert H. Goddard?
+
+> __Llama__: Robert Hutchings Goddard (October 5, 1882 – August 10, 1945) was an American engineer, professor, physicist, and inventor who is credited with creating and building the world's first liquid-fueled rocket. He is known as the father of modern rocketry or "rocket science."
+
+---
+
+> __Me__: Explain the importance of a large language model's parameter count.
+
+> __Llama__: A large language model's parameter count refers to the number of parameters used in its training process. These parameters are essentially weights that help the model learn from data, allowing it to make predictions and generate responses based on what it has learned. The larger the parameter count, the more complex and accurate the model can be at understanding and generating language.
+>
+>Increasing a large language model's parameter count allows for better performance in tasks such as text generation, translation, and answering questions. However, training these models requires significant computational resources, making them costly to develop and maintain. As a result, researchers often focus on finding efficient ways to train larger models with fewer parameters while still achieving high accuracy levels.
+
+---
+
+> __Me__: Write a paragraph about orbital mechanics in Spanish.
+
+> __Llama__: La mecánica orbital es una rama de la física que estudia el movimiento y las órbitas de los cuerpos celestes en relación con sus fuerzas gravitacionales, como la gravedad. Esto incluye cómo se mueven los planetas alrededor del Sol, así como cómo se orbitan satélites artificiales alrededor de la Tierra y otros objetos espaciales alrededor de otras estrellas. La mecánica orbital también ayuda a comprender cómo funciona el tiempo en diferentes partes del universo y cómo los viajes interestelares pueden ser posiblemente realizados en el futuro.
+
 ### Happy Coding!
