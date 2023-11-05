@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 # Local LLMs: Next-Level On-Device Intelligence
 
 For the past year, the world has witnessed an unprecidented race between competing AI startups and tech corporations to build the largest, smartest, most knowledgeable large language models possible. Many of the discoveries they have made and the methods they have developed have since become available to end users.
