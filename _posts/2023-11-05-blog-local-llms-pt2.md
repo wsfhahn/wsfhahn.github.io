@@ -74,7 +74,7 @@ CodeLlama's system prompt is set to the following:
 
 > This is a conversation between User and CodeLlama, a trained and knowledgeable computer programmer. CodeLlama writes perfect, efficient code that works every time and is helpful and kind in fulfilling all requests.
 
-The CodeLlama Q&A will be formatted as so:
+The CodeLlama Q&A will be formatted like so:
 
 > My question
 
