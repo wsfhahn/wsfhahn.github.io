@@ -4,6 +4,10 @@ layout: post
 
 # Local LLMs: CodeLlama's Productive Potential
 
+<img src="https://ca-times.brightspotcdn.com/dims4/default/282b9ef/2147483647/strip/true/crop/3000x2000+0+0/resize/840x560!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Faf%2F23%2Faae89a474d299802f444f5c96206%2Fchat-gpt-02.gif" alt="Animation of a computer chip thinking">
+
+---
+
 In [my last post](https://wsfhahn.github.io/2023/11/04/blog-local-llms-pt1.html), I successfully chatted with a 13 billion parameter large language model locally on my computer using [llama.cpp](https://github.com/ggerganov/llama.cpp). Although it was a fun experiment, I decided to push it even further by running a significantly larger, 34 billion parameter model called [CodeLlama 34B Instruct](https://huggingface.co/TheBloke/CodeLlama-34B-Instruct-GGUF).
 
 My goal in running a 34B model was to generate functional sample code which I could use to learn more programming languages, like JavaScript and Rust. Having a local bot to come up with ideas and write and check code is convenient, even though it lacks the ability to complete entire projects on its own.
