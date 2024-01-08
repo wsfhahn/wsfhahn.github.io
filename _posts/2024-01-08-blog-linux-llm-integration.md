@@ -54,4 +54,4 @@ The Agent Space transforms many aspects of the operating system, from system man
 
 The widespread integration of large language models into our devices is inevitable, and I'm excited to see where this technology takes us. With technologies like the theoretical system described in this post in active development, it feels like we are rushing into the future at an astonishing rate. I hope this post gives a glimpse into one route the future may take. Stay optimistic!
 
-*This post does not describe an existing system on the market. My goal is to spark technical discussion and innovation in the field of machine learning development, because I believe the futher development of machine learning benefits everyone.*
+*This post does not describe an existing system on the market. My goal is to spark technical discussion and innovation in the field of machine learning development, because I believe that further development of machine learning benefits everyone.*
