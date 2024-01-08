@@ -20,7 +20,7 @@ The Agent Space lays between the user space and the kernel space, acting as a br
 
 ### The Key Benefits of the Agent Space:
 
-It is important to destinguish between features and benefits. A feature is a capability that is implemented, whereas a benefit is a tangible improvement felt by the user. A feature should only be implemented if it provides the user with a benefit.
+It is important to destinguish between features and benefits. A feature is a capability that is implemented, whereas a benefit is a tangible improvement felt by the user. A feature should only be implemented if it provides the user with a benefit. The Agent Space concept provides many real-world benefits.
 
 - **Advanced Natural Language Processing:** The LLM running within the Agent Space interprets and dynamically processes user requests from all areas of the user space, translating them into highly efficient system commands. This makes day-to-day life smoother and easier for the user by allowing the system to conform to their needs on the fly.
 - **Intelligent Automation:** As the LLM learns from user habits and behaviors with time, it gains a sufficient understanding of the user to automate key tasks, such as scheduling, content downloads, and storage optimization with the added context of user content, allowing the user to focus on what's important to them.
@@ -36,7 +36,7 @@ In order to implement an LLM in the Linux system, the Agent Space is integrated 
 - The user is able to interact with the LLM within the Agent Space through both the command line and graphical applications, appearing in software when needed and falling to the background when not.
 - It runs scripts, applications, and performs operations based on fluctuating user requirements predicted by the LLM.
 
-### Interaction with the Kernel Space
+### Interaction with the Kernel Space:
 
 - The LLM is able to pull key information from the kernel, like performance data, loaded and unloaded modules, and memory allocation, and can issue commands accordingly.
 - It is an intelligent intermediate between the two traditional spaces, utilizing real-time data analysis to optimize kernel operations.
