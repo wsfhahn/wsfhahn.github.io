@@ -12,7 +12,7 @@ In this blog post, I will attempt to illustrate one vision for the future by des
 
 ## The Agent Space Concept
 
-Typcially, Linux systems are segmented into two parts; the user space, or userland, and the kernel space. The user space contains applications and all user-level services, whereas the kernel space is home to the core of the operating system, managing both hardware and [system calls](https://www.geeksforgeeks.org/linux-system-call-in-detail/#).
+Typcially, Linux systems are segmented into two parts: the user space, or userland, and the kernel space. The user space contains applications and all user-level services, whereas the kernel space is home to the core of the operating system, managing both hardware and [system calls](https://www.geeksforgeeks.org/linux-system-call-in-detail/#).
 
 The Agent Space lays between the user space and the kernel space, acting as a bridge between the two. It leverages the capabilites of large language models to enhance system operations, user interactions, and automate various tasks.
 
