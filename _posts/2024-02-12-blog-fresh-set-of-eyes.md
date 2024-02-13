@@ -4,9 +4,6 @@ layout: post
 
 # A Fresh Set of Eyes: Receiving and Decoding Satellite Imagery
 
-## Page Under Construction!
-![Under Construction](https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif)
-
 ## Introduction
 
 Embarking on a task that intertwined my experience and knowledge of amateur radio, environmental sciences, and satellite communication, December of 2021 marked a breakthrough in my attempts to receive and decode an image captured by a satellite soaring high above in orbit. Guided by my long-standing desire to see earth from space, I constructed a ground station made up of antennas, receivers, and a rat's nest of wires, tuned specifically to hone in on the faint signals emitted by the satellites NOAA-15, NOAA-18, and NOAA-19. Over the following months, I successfully captured and decoded five images from low earth orbit.
