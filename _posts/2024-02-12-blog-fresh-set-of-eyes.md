@@ -150,4 +150,4 @@ After following all of these steps, I had my first ever satellite image.
 
 ## Conclusion
 
-Thank you for taking the time to read to this point. This project has been the most enjoyable thing I have ever worked on. I want this blog article to act as encouragement for everyone reading to never lose their curiousity, and to continue to search for answers. Nothing is out of reach until you've attempted it, and without trying, success can never be known. Science is for everybody.
+Thank you for taking the time to read to this point. This project has been the most enjoyable thing I have ever worked on. I want this blog article to act as encouragement for everyone reading to never lose their curiousity, and to continue to search for answers. Nothing is out of reach until you've attempted it, and without trying, success can never be known. Science is for everyone.
