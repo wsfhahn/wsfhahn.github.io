@@ -8,9 +8,9 @@ layout: post
 
 Embarking on a task that intertwined my experience and knowledge of amateur radio, environmental sciences, and satellite communication, December of 2021 marked a breakthrough in my attempts to receive and decode an image captured by a satellite soaring high above in orbit. Guided by my long-standing desire to see earth from space, I constructed a ground station made up of antennas, receivers, and a rat's nest of wires, tuned specifically to hone in on the faint signals emitted by the satellites NOAA-15, NOAA-18, and NOAA-19. Over the following months, I successfully captured and decoded five images from low earth orbit.
 
-The three satellites, NOAA-15, 18, and 19, and incredible marvels of engineering. The images these satellites capture are extremely valuable to scientists and researchers. They offer insights into weather patterns, CO2 emissions, and oceanic currents and conditions at a scale and quality never before seen.
+The three satellites, NOAA-15, 18, and 19, are incredible marvels of engineering. The images these satellites capture are extremely valuable to scientists and researchers. They offer insights into weather patterns, CO2 emissions, and oceanic currents and conditions at a scale and quality never before seen.
 
-In this blog post, I will share the fundemental concepts explored, the raw data I captured, the images I processed, and the setup I used, and I will explain the decision making process behind my steps.
+In this blog post, I will share the fundamental concepts explored, the raw data I captured, the images I processed, and the setup I used, and I will explain the decision making process behind my steps.
 
 ## Selecting a Satellite
 
@@ -66,7 +66,7 @@ Assembling the ground station takes about six minutes. It's simple process, so t
 - Use protractor to angle the dipole antennas 120º apart.
 - Align dipole assembly horizontally to the ground.
 - Use a compass to point the center of the dipole exactly north.
-- Tilt dipole to allign with satellite elevation.
+- Tilt dipole to align with satellite elevation.
 - Connect one end of coaxial extension cable to dipole base and other to amplifier input.
 - Connect amplifier output to tuner dongle.
 - Connect tuner dongle to laptop and begin software initialization.
@@ -78,7 +78,7 @@ After following these steps, the hardware setup is complete, and the remaining w
 
 While hardware is important for receiving satellite images, it is only one half of the equation. Software is required to compute satellite passes, locate signals, store recorded data to the computer, process it, and export the final images. For this project, I used a wide range of different softwares for individual tasks.
 
-### Satellite Tracking/Pass Precitions
+### Satellite Tracking/Pass Predictions
 
 A key step of receiving images from satellites is figuring out the times when the receiver will have a line of sight view of the satellite. To do this, I needed to use a software which would allow me to accurately predict when the satellite would be overhead. A satellite tracker software gives you the ability to view  the locations of satellites of interest, predict their motion relative to your location, and compute important details like elevation, azimuth and acquisition of signal times. For this task, I used [MacDoppler](https://www.dogparksoftware.com/MacDoppler.html). I chose it because MacDoppler has built it functions to download satellite telemetry data (Keplerian Elements) from multiple sources and make predictions based off of that data. It also has excellent ground track visualization.
 
