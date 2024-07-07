@@ -16,7 +16,7 @@ Typcially, Linux systems are segmented into two parts: the user space, or userla
 
 The Agent Space lays between the user space and the kernel space, acting as a bridge between the two. It leverages the capabilites of large language models to enhance system operations, user interactions, and automate various tasks.
 
-![Theoretical Linux Stack](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-01-08-stack.png?raw=true)
+![Theoretical Linux Stack](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-01-08/2024-01-08-stack.png?raw=true)
 
 ### The Key Benefits of the Agent Space:
 
