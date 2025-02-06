@@ -1,8 +1,9 @@
 ---
 layout: post
+title: "Inegrating Large Language Models into Linux Systems: Theoretical"
+date: 2024-02-12
+categories: general
 ---
-
-# Integrating Large Language Models into Linux Systems: The Agent Space
 
 ## Introduction
 

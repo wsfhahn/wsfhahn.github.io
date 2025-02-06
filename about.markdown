@@ -4,15 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hello! My name is Will. Thanks for taking a look at my blog. I am a tech enthusiast and a student at Arizona State University. I work with large language models both as a hobby and as a job.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+I love to write about my hobby projects, and that's exactly what you'll find here on this site. Some of my posts are more theoretical, while others are complete tutorials which you can follow to reproduce what I've done.

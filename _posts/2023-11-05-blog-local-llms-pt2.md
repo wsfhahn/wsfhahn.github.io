@@ -1,8 +1,9 @@
 ---
 layout: post
+title: "Local LLMs: CodeLlama's Productive Potential"
+date: 2023-11-05
+categories: general
 ---
-
-# Local LLMs: CodeLlama's Productive Potential
 
 <img src="https://ca-times.brightspotcdn.com/dims4/default/282b9ef/2147483647/strip/true/crop/3000x2000+0+0/resize/840x560!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Faf%2F23%2Faae89a474d299802f444f5c96206%2Fchat-gpt-02.gif" alt="Animation of a computer chip thinking">
 

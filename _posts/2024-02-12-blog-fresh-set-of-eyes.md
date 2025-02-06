@@ -1,8 +1,9 @@
 ---
 layout: post
+title: "A Fresh Set of Eyes: Receiving and Decoding Satellite Imagery"
+date: 2024-02-12
+categories: general
 ---
-
-# A Fresh Set of Eyes: Receiving and Decoding Satellite Imagery
 
 ## Introduction
 
