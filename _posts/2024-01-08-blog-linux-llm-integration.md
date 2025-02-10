@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Inegrating Large Language Models into Linux Systems: Theoretical"
+title: "Integrating Large Language Models into a Linux System: Theoretical"
 date: 2024-02-12
 categories: general
 ---
