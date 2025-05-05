@@ -89,7 +89,7 @@ A key step of receiving images from satellites is figuring out the times when th
 
 The RTL-SDR Blog V3 tuner dongle I chose is compatible with a wide range of software suites. While searching for the perfect program, I was specifically keeping my eye out for open source software compatible with macOS. The best macOS app I found is [CubicSDR](https://cubicsdr.com). It's reliable, can be built on your own machine, and provides a wide range of controls for the tuner dongle. It's important to note that it no longer seems to function on macOS versions 14.0 and above. This issue can be resolved by [dual booting](https://www.macworld.com/article/672589/how-to-dual-boot-mac-run-macos-together.html) macOS Big Sur along side the main operating system and running CubicSDR inside Big Sur.
 
-![CubicSDR](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/cubicsdr.png?raw=True)
+![CubicSDR](/assets/2024-02-09/cubicsdr.png)
 
 Something that I found out the hard way is that the RTL-SDR Blog V3 tuner dongle does not have bias tee power enabled by default. This means that without intentionally enabling it, the amplifier will not function. To get bias tee power working, I downloaded the [rtl-sdr-blog](https://github.com/osmocom/rtl-sdr) repo from Github and built it using `make`. From there, I used the `rtl_biast` binary to enable bias tee power. A tutorial can be found in the [RTL-SDR Blog V3 Dongles User Guide](https://www.rtl-sdr.com/rtl-sdr-blog-v-3-dongles-user-guide/).
 
