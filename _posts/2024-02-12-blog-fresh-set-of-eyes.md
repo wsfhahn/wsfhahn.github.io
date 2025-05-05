@@ -19,8 +19,7 @@ Satellites, being in a stable orbit around a central body, follow predictable pa
 
 The satellites NOAA-15, NOAA-18 and NOAA-19 stuck out as great candidates for many reasons. They are based on the [Advanced TIROS-N](http://www.astronautix.com/a/advancedtirosn.html) satellite bus and carry a wide array of instruments. Different data types are transmitted on different frequencies which are listed on the above sources. These satellites transmit reduced resolution images at 137.62 MHz, 137.9125 MHz and 137.10 MHz respectively in an analog image format called [Automatic Picture Transmission (APT)](https://www.sigidwiki.com/wiki/Automatic_Picture_Transmission_(APT)).
 
-![Advanced TIROS-N](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/tiros-n-bus.webp?raw=true)
-<img src="../_assets/2024-02-09/tiros-n-bus.webp" alt="Advanced TIROS-N Satellite Bus">
+![Advanced TIROS-N](/assets/2024-02-09/tiros-n-bus.webp)
 
 The image signals produced by the three satellites can be received using cheap, DIY hardware. They are low frequency and horizontally polarized, meaning they can be picked up by a simple dipole antenna.
 
@@ -34,8 +33,7 @@ After selecting the best satellites, it was time to build a ground station. My g
 
 To pick up and record any signals at all, I needed an SDR tuner dongle. This piece of hardware connects to an antenna on one end and a computer on the other, and allows the computer to control its internal radio. It also converts the received signals from the antenna into a digital signal which can be understood by the computer. This is necessary for precisely honing in on satellite signals as well as capturing them digitally for processing, so without it, the project would go nowhere. Due to its low price point and high quality components, I chose the [RTL-SDR Blog V3 R860 (R820T2) RTL2832U 1PPM TCXO SMA Software Defined Radio](https://www.rtl-sdr.com/product/rtl-sdr-blog-v3-r820t2-rtl2832u-1ppm-tcxo-sma-software-defined-radio-dongle-only/).
 
-![RTL-SDR Blog V3 R860 (R820T2) RTL2832 1PPM TCXO SMA Software Defined Radio](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/rtlsdr-v3.jpg?raw=True)
-<img src="../_assets/2024-02-09/rtlsdr-v3.jpg" alt="RTL-SDR Blog V3 R860 (R820T2) RTL2832 1PPM TCXO SMA Software Defined Radio">
+![RTL-SDR Blog V3 R860 (R820T2) RTL2832 1PPM TCXO SMA Software Defined Radio](/assets/2024-02-09/rtlsdr-v3.jpg)
 
 #### Low Noise Amplifier
 
@@ -85,7 +83,7 @@ While hardware is important for receiving satellite images, it is only one half 
 
 A key step of receiving images from satellites is figuring out the times when the receiver will have a line of sight view of the satellite. To do this, I needed to use a software which would allow me to accurately predict when the satellite would be overhead. A satellite tracker software gives you the ability to view  the locations of satellites of interest, predict their motion relative to your location, and compute important details like elevation, azimuth and acquisition of signal times. For this task, I used [MacDoppler](https://www.dogparksoftware.com/MacDoppler.html). I chose it because MacDoppler has built it functions to download satellite telemetry data (Keplerian Elements) from multiple sources and make predictions based off of that data. It also has excellent ground track visualization.
 
-![MacDoppler](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/macdoppler.png?raw=True)
+![MacDoppler](/assets/2024-02-09/macdoppler.png)
 
 ### Software Defined Radio
 
@@ -99,13 +97,13 @@ Something that I found out the hard way is that the RTL-SDR Blog V3 tuner dongle
 
 After recording signals using CubicSDR, the specified recording directory gets filled with short audio files. Before attempting to decode the received data, they need to be stitched back together into one file. To create one file, I used [Audacity](https://www.audacityteam.org). Audacity offers a plethora of tools for manipulating, combining, and exporting audio files. After opening Audacity, I dragged the directory of audio files into the timeline and used the align tool to align them end to end. Then, I used the mix and render tool to stitch them together. After that, I exported them as a .wav file.
 
-![Audacity](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/audacity.png?raw=True)
+![Audacity](/assets/2024-02-09/audacity.png)
 
 ### Decoding
 
 With a single audio file ready, I needed a method to decode it to an image. The data transmitted by NOAA-15, NOAA-18 and NOAA-19 is encoded in the APT (Automatic Picture Transmission) format. Searching online for a software to decode it, I found a Github repository called [NOAA-APT](https://github.com/martinber/noaa-apt). NOAA-APT has a graphical interface and is almost entirely written in Rust, which is a high performance, ahead-of-time compiled language. It can be compiled using the Rust toolchain and the build process can be found [here](https://noaa-apt.mbernardi.com.ar/development.html#mac--osx). After running the binary, the audio file can be imported and decoded into an image.
 
-![CubicSDR](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/noaa-apt.png?raw=True)
+![CubicSDR](/assets/2024-02-09/noaa-apt.png)
 
 ### The Software Workflow
 
@@ -133,23 +131,23 @@ After following all of these steps, I had my first ever satellite image.
 
     January 30, 2022
 
-![January 30, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/jan-30.png?raw=True)
+![January 30, 2022](/assets/2024-02-09/jan-30.png)
 
     February 13, 2022
 
-![February 13, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-13.png?raw=True)
+![February 13, 2022](/assets/2024-02-09/feb-13.png)
 
     February 19, 2022
 
-![February 19, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-19.png?raw=True)
+![February 19, 2022](/assets/2024-02-09/feb-19.png)
 
     March 8, 2022
 
-![March 8, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/mar-8.png?raw=True)
+![March 8, 2022](/assets/2024-02-09/mar-8.png)
 
     February 17, 2023
 
-![February 17, 2023](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-17.png?raw=True)
+![February 17, 2023](/assets/2024-02-09/feb-17.png)
 
 ## Conclusion
 
