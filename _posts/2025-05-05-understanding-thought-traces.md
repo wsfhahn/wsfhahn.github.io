@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Exploring and Understand Thought Traces in Reasoning Models
-date: 2025-04-31
+date: 2025-05-05
 categories: personal
 ---
 
