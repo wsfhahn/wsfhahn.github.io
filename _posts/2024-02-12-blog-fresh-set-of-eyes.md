@@ -89,7 +89,7 @@ A key step of receiving images from satellites is figuring out the times when th
 
 The RTL-SDR Blog V3 tuner dongle I chose is compatible with a wide range of software suites. While searching for the perfect program, I was specifically keeping my eye out for open source software compatible with macOS. The best macOS app I found is [CubicSDR](https://cubicsdr.com). It's reliable, can be built on your own machine, and provides a wide range of controls for the tuner dongle. It's important to note that it no longer seems to function on macOS versions 14.0 and above. This issue can be resolved by [dual booting](https://www.macworld.com/article/672589/how-to-dual-boot-mac-run-macos-together.html) macOS Big Sur along side the main operating system and running CubicSDR inside Big Sur.
 
-![CubicSDR](/_assets/2024-02-09/cubicsdr.png)
+![CubicSDR](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/cubicsdr.png?raw=True)
 
 Something that I found out the hard way is that the RTL-SDR Blog V3 tuner dongle does not have bias tee power enabled by default. This means that without intentionally enabling it, the amplifier will not function. To get bias tee power working, I downloaded the [rtl-sdr-blog](https://github.com/osmocom/rtl-sdr) repo from Github and built it using `make`. From there, I used the `rtl_biast` binary to enable bias tee power. A tutorial can be found in the [RTL-SDR Blog V3 Dongles User Guide](https://www.rtl-sdr.com/rtl-sdr-blog-v-3-dongles-user-guide/).
 
@@ -97,13 +97,13 @@ Something that I found out the hard way is that the RTL-SDR Blog V3 tuner dongle
 
 After recording signals using CubicSDR, the specified recording directory gets filled with short audio files. Before attempting to decode the received data, they need to be stitched back together into one file. To create one file, I used [Audacity](https://www.audacityteam.org). Audacity offers a plethora of tools for manipulating, combining, and exporting audio files. After opening Audacity, I dragged the directory of audio files into the timeline and used the align tool to align them end to end. Then, I used the mix and render tool to stitch them together. After that, I exported them as a .wav file.
 
-![Audacity](/_assets/2024-02-09/audacity.png)
+![Audacity](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/audacity.png?raw=True)
 
 ### Decoding
 
 With a single audio file ready, I needed a method to decode it to an image. The data transmitted by NOAA-15, NOAA-18 and NOAA-19 is encoded in the APT (Automatic Picture Transmission) format. Searching online for a software to decode it, I found a Github repository called [NOAA-APT](https://github.com/martinber/noaa-apt). NOAA-APT has a graphical interface and is almost entirely written in Rust, which is a high performance, ahead-of-time compiled language. It can be compiled using the Rust toolchain and the build process can be found [here](https://noaa-apt.mbernardi.com.ar/development.html#mac--osx). After running the binary, the audio file can be imported and decoded into an image.
 
-![CubicSDR](/_assets/2024-02-09/cubicsdr.png)
+![CubicSDR](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/noaa-apt.png?raw=True)
 
 ### The Software Workflow
 
@@ -131,23 +131,23 @@ After following all of these steps, I had my first ever satellite image.
 
     January 30, 2022
 
-![January 30, 2022](/_assets/2024-02-09/jan-30.png)
+![January 30, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/jan-30.png?raw=True)
 
     February 13, 2022
 
-![February 13, 2022](/_assets/2024-02-09/feb-13.png)
+![February 13, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-13.png?raw=True)
 
     February 19, 2022
 
-![February 19, 2022](/_assets/2024-02-09/feb-19.png)
+![February 19, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-19.png?raw=True)
 
     March 8, 2022
 
-![March 8, 2022](/_assets/2024-02-09/mar-8.png)
+![March 8, 2022](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/mar-8.png?raw=True)
 
     February 17, 2023
 
-![February 17, 2023](/_assets/2024-02-09/feb-17.png)
+![February 17, 2023](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/feb-17.png?raw=True)
 
 ## Conclusion
 
