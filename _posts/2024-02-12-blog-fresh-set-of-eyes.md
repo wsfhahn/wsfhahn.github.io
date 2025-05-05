@@ -33,7 +33,7 @@ After selecting the best satellites, it was time to build a ground station. My g
 
 To pick up and record any signals at all, I needed an SDR tuner dongle. This piece of hardware connects to an antenna on one end and a computer on the other, and allows the computer to control its internal radio. It also converts the received signals from the antenna into a digital signal which can be understood by the computer. This is necessary for precisely honing in on satellite signals as well as capturing them digitally for processing, so without it, the project would go nowhere. Due to its low price point and high quality components, I chose the [RTL-SDR Blog V3 R860 (R820T2) RTL2832U 1PPM TCXO SMA Software Defined Radio](https://www.rtl-sdr.com/product/rtl-sdr-blog-v3-r820t2-rtl2832u-1ppm-tcxo-sma-software-defined-radio-dongle-only/).
 
-![RTL-SDR Blog V3 R860 (R820T2) RTL2832 1PPM TCXO SMA Software Defined Radio](/_assets/2024-02-09/rtlsdr-v3.jpg)
+![RTL-SDR Blog V3 R860 (R820T2) RTL2832 1PPM TCXO SMA Software Defined Radio](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/rtlsdr-v3.jpg?raw=True)
 
 #### Low Noise Amplifier
 
@@ -83,7 +83,7 @@ While hardware is important for receiving satellite images, it is only one half 
 
 A key step of receiving images from satellites is figuring out the times when the receiver will have a line of sight view of the satellite. To do this, I needed to use a software which would allow me to accurately predict when the satellite would be overhead. A satellite tracker software gives you the ability to view  the locations of satellites of interest, predict their motion relative to your location, and compute important details like elevation, azimuth and acquisition of signal times. For this task, I used [MacDoppler](https://www.dogparksoftware.com/MacDoppler.html). I chose it because MacDoppler has built it functions to download satellite telemetry data (Keplerian Elements) from multiple sources and make predictions based off of that data. It also has excellent ground track visualization.
 
-![MacDopper](/_assets/2024-02-09/macdoppler.png)
+![MacDoppler](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-02-09/macdoppler.png?raw=True)
 
 ### Software Defined Radio
 
