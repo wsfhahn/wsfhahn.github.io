@@ -15,7 +15,7 @@ categories: personal
 
 As the frontier of AI research has continued to creep forward, there's never been a better time to take a look in the rear-view mirror and observe how far we've come. I still clearly remember, as I'm sure you do as well, the very first release of ChatGPT. It's not often we see a tech-demo so eye-opening that it shakes the internet to its core. Within the first 5 days after its release, ChatGPT reached one million users, which is absolutely astonishing.
 
-![Stylized Path to First 1 Million Users](/_assets/2025-05-05/first-1-million-users.jpeg)
+![Stylized Path to First 1 Million Users](/assets/2025-05-05/first-1-million-users.jpeg)
 
 ### Why it struggled to solve complex problems
 
@@ -25,15 +25,33 @@ When querying a model like GPT-3.5, the output text was *all* of the text that t
 
 So, how do we mimic this in a large language model, given that it is merely a sophisticated next-word predictor? It's complicated, but throughout this blog post, I hope to break it down in a meaningful way that makes it apparent.
 
-## The Rise of Test-Time Compute scaling
+## Fundamental Principles of a Large Language Model
+
+### The output as a probability distribution
 
 As I mentioned earlier, large language models are merely sophisticated next-word predictors. The input text, or your query to the model, is broken down into a set of tokens. Tokens are an intermediate between letters and words, representing common sequences of letters in your language of choice. For example, the word "underwhelming" might be broken down into the tokens "under" + "whelm" + "ing". This is because it would not be practical to train a language model on the entire dictionary, and it's simpler to train it on smaller vocabulary of common groupings of letters.
+
+Just as our queries to large language models are composed of tokens, the model's outputs are also composed of tokens. However, there's one key missing piece. The existence With each pass of the model, a distribution of most likely 
+
+One burning question that immediately arrises is how the next token is predicted. 
+
+### Autoregression
+
+Autoregression is one of the key features of the large language model. Autoregression is a method where a language model completes its response one token at a time. This means that each new token is written with the context of all of the previous tokens, allowing the model to build out ideas and concepts iteratively across multiple tokens.
+
+### Emergence
+
+The "personality" and writing style of a large language model are emergent properties themselves, which are expressed through this autoregressive process.
+
+But this leaves a burning question. 
+
+
+
+## The Rise of Test-Time Compute Scaling
 
 ### What is test-time compute scaling?
 
 ### Breakthrough after breakthrough
-
-Large language models, at their core, are merely sophisticated next-token predictors. The input text, or the user query, is split up into tokens. The language model's job it to predict the most likely next token, given the context of all of the text in the conversation when the user hit send. The fact that the model completes the response one token at a time rather than in one shot is important, because it means the process is autoregressive. Autoregression allows the model the build up ideas incrementally, unfolding into new insights and understanding with each new token.
 
 ## Inside a Thought Trace: Anatomy of an LLM's Reasoning
 
@@ -43,13 +61,13 @@ Large language models, at their core, are merely sophisticated next-token predic
 
 ### Anthropomorphized framing as a learned strategy
 
-## Why Thought Traces are so powerful
+## Why Thought Traces are so Powerful
 
 ### Implications for transparency
 
 ### Real world analogs
 
-## Learning from the Machine: How Traces Teach user
+## Learning from the Machine: How Traces Teach Us
 
 ## Future Directions
 
