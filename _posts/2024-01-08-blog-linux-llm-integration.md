@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Integrating Large Language Models into a Linux System: Theoretical"
-date: 2024-02-12
+date: 2024-01-08
 categories: general
 ---
 
@@ -9,19 +9,19 @@ categories: general
 
 As [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) have continued to grow ever more capable, smaller in size, and more flexible than ever before, the path towards the future of software has become clear. LLMs will be integrated locally on a wide variety of devices, such as personal computers, tablets, smartphones, and smartwatches in the coming years, completely transforming the ways we interact with our technology. Tasks will become simpler, software will become smarter, and everyone with access to a modern device will reap the rewards.
 
-In this blog post, I will attempt to illustrate one vision for the future by describing a theoretical software system which seamlessly integrates a large language model into a [Linux system](https://www.linux.com/what-is-linux/), implementing a new, unique layer of the operating system called the "Agent Space." Positioned between the traditional [user space and the kernal space](https://www.form3.tech/blog/engineering/linux-fundamentals-user-kernel-space), it completely transforms the operating system by offering a myriad of capabilities and innovations.
+In this blog post, I will attempt to illustrate one vision for the future by describing a theoretical software system which seamlessly integrates a large language model into a [Linux system](https://www.linux.com/what-is-linux/), implementing a new, unique layer of the operating system called the "Agent Space." Positioned between the traditional [user space and the kernel space](https://www.form3.tech/blog/engineering/linux-fundamentals-user-kernel-space), it completely transforms the operating system by offering a myriad of capabilities and innovations.
 
 ## The Agent Space Concept
 
-Typcially, Linux systems are segmented into two parts: the user space, or userland, and the kernel space. The user space contains applications and all user-level services, whereas the kernel space is home to the core of the operating system, managing both hardware and [system calls](https://www.geeksforgeeks.org/linux-system-call-in-detail/#).
+Typically, Linux systems are segmented into two parts: the user space, or userland, and the kernel space. The user space contains applications and all user-level services, whereas the kernel space is home to the core of the operating system, managing both hardware and [system calls](https://www.geeksforgeeks.org/linux-system-call-in-detail/#).
 
-The Agent Space lays between the user space and the kernel space, acting as a bridge between the two. It leverages the capabilites of large language models to enhance system operations, user interactions, and automate various tasks.
+The Agent Space lays between the user space and the kernel space, acting as a bridge between the two. It leverages the capabilities of large language models to enhance system operations, user interactions, and automate various tasks.
 
-![Theoretical Linux Stack](https://github.com/wsfhahn/wsfhahn.github.io/blob/main/_assets/2024-01-08/2024-01-08-stack.png?raw=true)
+![Theoretical Linux Stack](/assets/2024-01-08/2024-01-08-stack.png)
 
 ### The Key Benefits of the Agent Space:
 
-It is important to destinguish between features and benefits. A feature is a capability that is implemented, whereas a benefit is a tangible improvement felt by the user. A feature should only be implemented if it provides the user with a benefit. The Agent Space concept provides many real-world benefits.
+It is important to distinguish between features and benefits. A feature is a capability that is implemented, whereas a benefit is a tangible improvement felt by the user. A feature should only be implemented if it provides the user with a benefit. The Agent Space concept provides many real-world benefits.
 
 - **Advanced Natural Language Processing:** The LLM running within the Agent Space interprets and dynamically processes user requests from all areas of the user space, translating them into highly efficient system commands. This makes day-to-day life smoother and easier for the user by allowing the system to conform to their needs on the fly.
 - **Intelligent Automation:** As the LLM learns from user habits and behaviors with time, it gains a sufficient understanding of the user to automate key tasks, such as scheduling, content downloads, and storage optimization with the added context of user content, allowing the user to focus on what's important to them.
