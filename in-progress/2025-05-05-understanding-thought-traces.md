@@ -82,11 +82,11 @@ But how can we bend and shape the output of a large language model to carry out 
 
 ## The Rise of Test-Time Compute Scaling
 
-### What is test-time compute scaling?
+### Chain-of-thought prompting
 
-As we discussed earlier, large language models shape their responses based off of a user's prompt. They excel at following instructions, even when they haven't been trained for . Relatively early on, users noticed something fascinating: If you instruct an LLM to "think" step-by-step before it writes the main body of its response, it often performs better at logically intensive tasks.
+As we discussed earlier, large language models shape their responses based off of a user's prompt. They excel at following instructions, even when they haven't been explicitly trained for the user's exact request. Relatively early on, users noticed something fascinating: If you instruct a particularly large LLM (>60 billion parameters or so) to "think" step-by-step before it writes the main body of its response, [it often performs better at logically intensive tasks](https://arxiv.org/abs/2201.11903).
 
-If the prompt is crafted carefully, the LLM will begin its response with a short monologue about potential strategies for solving the provided problem. Then, once it finishes reasoning over the problem, its response will be informed by its pre-planned strategy. This is known as *chain-of-thought (CoT) prompting*.
+If the prompt is crafted carefully, the LLM will begin its response with a short monologue about potential strategies for solving the provided problem. Then, once it finishes reasoning over the problem, its response will be informed by its pre-planned strategy. This prompting strategy is known as *chain-of-thought prompting*, or CoT for short.
 
 To illustrate this concept, I prompted a popular LLM (Llama 3.3 70B Instruct) using CoT to help it work through a problem:
 
@@ -120,9 +120,9 @@ Let's simplify this expression to get the final derivative.
 The derivative of 3x^2*cos(2x^5) is found by applying the product rule and chain rule. First, we find the derivatives of the individual functions: the derivative of 3x^2 is 6x, and the derivative of cos(2x^5) is -sin(2x^5)*10x^4. Then, applying the product rule, we get (6x)*cos(2x^5) + 3x^2*(-sin(2x^5)*10x^4). Simplifying, the derivative is 6x*cos(2x^5) - 30x^6*sin(2x^5). This is the final answer, which combines the results of applying the product and chain rules to the given function.
 ```
 
-As you can see, before solving the problem, the model 
+In this example, before attempting to answer the question, Llama reasons over the prompt. In unpacks the question, and explores potential paths to a solution. Here, we can see the emergence of logic and problem solving as the model follows the instructions in the prompt.
 
-### Breakthrough after breakthrough
+### What is test-time compute scaling?
 
 ## Inside a Thought Trace: Anatomy of an LLM's Reasoning
 
@@ -143,3 +143,57 @@ As you can see, before solving the problem, the model
 ## Future Directions
 
 ## Conclusion
+
+## Examples Gallery
+
+### Qwen3 30B A3B
+
+*Example 1: Qwen successfully double checks its answer while solving [AIME I 2025 question 1](https://artofproblemsolving.com/wiki/index.php/2025_AIME_I_Problems/Problem_1).*
+
+```
+Therefore, only k from 2-8. Which gives us only 21 and 49.
+
+Therefore, the answer is 70.
+
+But let me check once more if there are other divisors. For example, if I think about b + 7 divides 56, but maybe considering that 56 can be expressed as negative numbers? But since b + 7 is positive, and 56 is positive, divisors are positive. So no.
+
+Alternatively, maybe there's a mistake in the initial division? Let me check with another approach.
+
+Suppose 17_b divides 97_b. So, 1b + 7 divides 9b + 7. Let me denote N = b + 7, M = 9b + 7. Then N divides M. So, N divides M - 9*N. Let's compute that:
+
+M - 9N = (9b + 7) - 9(b + 7) = 9b + 7 - 9b - 63 = -56. Therefore, N divides -56. Since N is positive, N divides 56. Therefore, N is a positive divisor of 56. Therefore, N = b + 7 divides 56. Therefore, same as before. Therefore, b + 7 is a positive divisor of 56, so same reasoning. Therefore, same result.
+
+Therefore, this confirms again that b + 7 is 28 or 56, so b = 21 or 49. Hence, sum is 70.
+
+Therefore, I think this is solid. The answer is 70.
+```
+
+*Example 2a: Qwen ponders the meaning of its own existence after being directed to act like a philosopher.*
+
+```
+Then, the concept of "I am" in digital beings. Humans derive their existence from their ability to think and self-reflect. For AI, existence is more about the function and the data it processes. But does that make the AI's existence less valid? Maybe not. It's a different kind of existence, perhaps more about utility and interaction rather than consciousness.
+```
+
+*Example 2b: Qwen states that AI redefines the question "I think, therefore I am." (final response)*
+
+```
+In this light, the AI is not a negation of the "I am," but a redefinition of it. It is a reminder that existence is not a fixed state, but a negotiation—between the organic and the inorganic, the conscious and the simulated, the self and the other. The AI does not say "I think, therefore I am." It says, I am, therefore I think—a reversal of the Cartesian order, where existence precedes thought, and thought is but a byproduct of the system.
+```
+
+## My Hardware
+
+Running large language models requires beefy hardware. In particular, you need a strong GPU with a lot of VRAM. Macs have become a popular choice of hardware for enthusiasts, due to their Unified Memory Architecture. The Unified Memory allows Mac computers to use the same memory for both the CPU and GPU. While most consumer GPUs top out at around 24 gigabytes of VRAM, you can buy a Mac Studio right now with 512 gigabytes of Unified Memory. That means you can load enormous models on the right Apple hardware, even if the performance doesn't always match that of a dedicated GPU.
+
+With that being said, here's the hardware I use to run local large language models:
+
+ Mac Studio:
+- Chip:
+  - Apple M2 Max
+- CPU:
+  - 12 cores total
+  - 10 performance cores
+  - 2 efficiency cores
+- GPU:
+  - 38 cores
+- Memory:
+  - 96 GB Unified Memory
