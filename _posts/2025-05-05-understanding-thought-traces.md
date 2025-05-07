@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Exploring and Understand Thought Traces in Reasoning Models
+title: Exploring and Understanding Thought Traces in Reasoning Models
 date: 2025-05-05
+author: "William Hahn"
 categories: personal
 ---
 

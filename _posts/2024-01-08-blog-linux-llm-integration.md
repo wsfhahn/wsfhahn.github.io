@@ -2,6 +2,7 @@
 layout: post
 title: "Integrating Large Language Models into a Linux System: Theoretical"
 date: 2024-01-08
+author: "William Hahn"
 categories: general
 ---
 

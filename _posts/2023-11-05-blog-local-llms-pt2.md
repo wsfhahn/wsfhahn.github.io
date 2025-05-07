@@ -2,6 +2,7 @@
 layout: post
 title: "Local LLMs: CodeLlama's Productive Potential"
 date: 2023-11-05
+author: "William Hahn"
 categories: general
 ---
 

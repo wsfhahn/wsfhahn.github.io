@@ -1,17 +1,28 @@
 ---
 layout: post
-title: Exploring and Understand Thought Traces in Reasoning Models
+title: Exploring and Understanding Thought Traces in Reasoning Models
 date: 2025-05-05
+author: "William Hahn"
 categories: personal
 ---
 
-## This post is under construction
+<style>
+    article.post pre code {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
 
-![Under Construction](https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif)
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
 
 ## Introduction: From Simple Question Answering to Engines of Cognition
 
-![Thinking Man](/assets/2025-05-05/thinking-man-transparent.GIF)
+<img src="/assets/2025-05-05/thinking-man-transparent.GIF" alt="Thinking Man GIF" class="center">
 
 ### The release of GPT-3.5
 
@@ -73,9 +84,43 @@ But how can we bend and shape the output of a large language model to carry out 
 
 ### What is test-time compute scaling?
 
-As we discussed earlier, large language models shape their responses based off of the content of a user's prompt. They excel at following instructions, even if they haven't been explicitly trained for a particular use case. Relatively early on, users noticed something fascinating: If you instruct an LLM to "think" step-by-step before it writes the main body of its response, it often performs better at logically intensive tasks.
+As we discussed earlier, large language models shape their responses based off of a user's prompt. They excel at following instructions, even when they haven't been trained for . Relatively early on, users noticed something fascinating: If you instruct an LLM to "think" step-by-step before it writes the main body of its response, it often performs better at logically intensive tasks.
 
-If the prompt is crafted carefully, the LLM will begin its response with a short monologue about potential strategies for solving the provided problem. Then, once it finishes reasoning over the problem, its response will be informed by a 
+If the prompt is crafted carefully, the LLM will begin its response with a short monologue about potential strategies for solving the provided problem. Then, once it finishes reasoning over the problem, its response will be informed by its pre-planned strategy. This is known as *chain-of-thought (CoT) prompting*.
+
+To illustrate this concept, I prompted a popular LLM (Llama 3.3 70B Instruct) using CoT to help it work through a problem:
+
+**User Message**:
+```
+You are a problem-solving assistant that thinks before it speaks. You will be provided with a problem, which you must provide a clear and correct answer to. Before you respond, craft a detailed step-by-step plan to use when solving the problem. Write your thoughts in a thinking section, inside <think> tags. Once you have created a sufficiently detailed plan to solve the problem, close the thinking section with a </think> tag. Then, write your answer outside of the thinking section, clearly explaining your logic and how you arrived at your final answer.
+
+Problem to solve: Compute the derivative of 3x^2*cos(2x^5).
+```
+
+**Assistant Message**:
+```
+<think>
+To solve this problem, we need to apply the product rule and chain rule of differentiation. The product rule states that if we have a function of the form f(x)g(x), its derivative is f'(x)g(x) + f(x)g'(x). The chain rule states that if we have a composite function of the form f(g(x)), its derivative is f'(g(x)) * g'(x).
+
+First, let's identify the functions we're working with: 
+- The first function is 3x^2.
+- The second function is cos(2x^5).
+
+We will differentiate each of these functions separately and then apply the product rule.
+
+The derivative of 3x^2 is 6x, using the power rule which states that if f(x) = x^n, then f'(x) = nx^(n-1).
+
+For the derivative of cos(2x^5), we will apply the chain rule. The derivative of cos(u) with respect to u is -sin(u), and the derivative of 2x^5 with respect to x is 10x^4. Therefore, the derivative of cos(2x^5) is -sin(2x^5) * 10x^4.
+
+Now, applying the product rule: the derivative of 3x^2*cos(2x^5) will be (6x)*cos(2x^5) + 3x^2*(-sin(2x^5)*10x^4).
+
+Let's simplify this expression to get the final derivative.
+</think>
+
+The derivative of 3x^2*cos(2x^5) is found by applying the product rule and chain rule. First, we find the derivatives of the individual functions: the derivative of 3x^2 is 6x, and the derivative of cos(2x^5) is -sin(2x^5)*10x^4. Then, applying the product rule, we get (6x)*cos(2x^5) + 3x^2*(-sin(2x^5)*10x^4). Simplifying, the derivative is 6x*cos(2x^5) - 30x^6*sin(2x^5). This is the final answer, which combines the results of applying the product and chain rules to the given function.
+```
+
+As you can see, before solving the problem, the model 
 
 ### Breakthrough after breakthrough
 

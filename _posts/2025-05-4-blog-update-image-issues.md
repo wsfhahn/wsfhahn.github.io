@@ -2,6 +2,7 @@
 layout: post
 title: "May 2025 Blog Update: Solving Issues"
 date: 2025-05-04
+author: "William Hahn"
 categories: general
 ---
 

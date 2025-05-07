@@ -2,10 +2,11 @@
 layout: post
 title: "Local LLMs: Next-Level On-Device Intelligence"
 date: 2023-11-04
+author: "William Hahn"
 categories: general
 ---
 
-For the past year, the world has witnessed an unprecidented race between competing AI startups and tech corporations to build the largest, smartest, most knowledgeable large language models possible. Many of the discoveries they have made and the methods they have developed have since become available to end users.
+For the past year, the world has witnessed an unprecedented race between competing AI startups and tech corporations to build the largest, smartest, most knowledgeable large language models possible. Many of the discoveries they have made and the methods they have developed have since become available to end users.
 
 Models like GPT can only be interacted with through a web client, and cannot be run locally on your own hardware. This is frustrating, because OpenAI imposes limitations on ChatGPT which significantly restrict its ability to carry out logic.
 
@@ -56,11 +57,11 @@ No errors encountered! Now all that's left to do is to pick a large language mod
 
 There are countless models to choose from scattered across the internet, so finding where to start can be challenging. However, I do have an idea of where to look.
 
-[HuggingFace](https://www.huggingface.co) is a gold mine for neurals networks and tools to implement them. [TheBloke](https://www.huggingface.co/TheBloke) has tons of converted models in the GGUF format required by llama.cpp. I'll start with a model called [OpenAssistant-Llama2-13B-Orca-8K-3319-GGUF](https://huggingface.co/TheBloke/OpenAssistant-Llama2-13B-Orca-8K-3319-GGUF).
+[HuggingFace](https://www.huggingface.co) is a gold mine for neural networks and tools to implement them. [TheBloke](https://www.huggingface.co/TheBloke) has tons of converted models in the GGUF format required by llama.cpp. I'll start with a model called [OpenAssistant-Llama2-13B-Orca-8K-3319-GGUF](https://huggingface.co/TheBloke/OpenAssistant-Llama2-13B-Orca-8K-3319-GGUF).
 
 The reason I'm starting with a 13 billion parameter model is because it will use less RAM and will inference faster than a 34 or 70 billion parameter model.
 
-The model can be downloaded in many different quantization standards. Quanitization standards are complicated and barely documented, but [this Reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/139yt87/comment/jj4qpbp/) offers some clarity. I will download the model quantized to 8 bits. This will use the most RAM out of all the options, but since the file size is smaller than my RAM capacity, I am not concerned about memory issues.
+The model can be downloaded in many different quantization standards. Quantization standards are complicated and barely documented, but [this Reddit thread](https://www.reddit.com/r/LocalLLaMA/comments/139yt87/comment/jj4qpbp/) offers some clarity. I will download the model quantized to 8 bits. This will use the most RAM out of all the options, but since the file size is smaller than my RAM capacity, I am not concerned about memory issues.
 
 With the model downloaded, I will run this command to move it from `~/Downloads/` to `~/LocalLLMs/llama.cpp/models/`:
 
