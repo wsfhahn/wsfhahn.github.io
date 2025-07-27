@@ -1,10 +1,9 @@
-# Build & deploy an Astro site that uses PNPM to GitHub Pages
 name: Deploy Astro site to Pages
 
 on:
   push:
-    branches: ["main"]     # run on every push to main
-  workflow_dispatch:       # allow manual runs from Actions tab
+    branches: ["main"]        # run on every push to main
+  workflow_dispatch:          # allow manual runs
 
 permissions:
   contents: read
@@ -16,40 +15,41 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: "."          # leave this alone unless your site is in a sub‑folder
+  BUILD_PATH: "."             # change only if your Astro project lives in a sub‑folder
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1 · Check out your code
+      # 1 · Check out your code
       - uses: actions/checkout@v4
 
-      # 2 · Set up Node 20 and turn on PNPM caching
+      # 2 · Set up Node 20 (no cache => no pnpm‑lookup error)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm                   # tells the action to cache ~/.pnpm-store
-          cache-dependency-path: pnpm-lock.yaml
 
-      # 3 · Enable Corepack so "pnpm" is available
-      - run: corepack enable
+      # 3 · Install pnpm (and put it on PATH)
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8               # or "latest"
+          run_install: false       # we’ll install ourselves in the next step
 
-      # 4 · Install dependencies with PNPM
+      # 4 · Install dependencies
       - run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
 
-      # 5 · Configure GitHub Pages
+      # 5 · Configure GitHub Pages (sets the correct URLs for Astro)
       - id: pages
         uses: actions/configure-pages@v5
 
-      # 6 · Build the Astro site
+      # 6 · Build the Astro site
       - run: pnpm astro build \
               --site "${{ steps.pages.outputs.origin }}" \
               --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
 
-      # 7 · Upload the generated files (dist/) as an artifact
+      # 7 · Upload the generated files (dist/) as an artifact
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.BUILD_PATH }}/dist
@@ -61,6 +61,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # 8 · Deploy the artifact to GitHub Pages
+      # 8 · Deploy to GitHub Pages
       - id: deployment
         uses: actions/deploy-pages@v4
