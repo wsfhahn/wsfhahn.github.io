@@ -32,7 +32,7 @@ jobs:
       # 3 · Install pnpm (and put it on PATH)
       - uses: pnpm/action-setup@v3
         with:
-          version: 8               # or "latest"
+          version: latest               # or "latest"
           run_install: false       # we’ll install ourselves in the next step
 
       # 4 · Install dependencies
