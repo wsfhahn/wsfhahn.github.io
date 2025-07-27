@@ -2,7 +2,7 @@
 title: 'A Fresh Set of Eyes'
 description: 'test'
 pubDate: 'Jun 19 2024'
-heroImage: '../../assets/fresh-set-of-eyes.png'
+heroImage: '../../assets/fresh-set-of-eyes/fresh-set-of-eyes.png'
 ---
 
 ## Introduction
@@ -19,7 +19,7 @@ Satellites, being in a stable orbit around a central body, follow predictable pa
 
 The satellites NOAA-15, NOAA-18 and NOAA-19 stuck out as great candidates for many reasons. They are based on the [Advanced TIROS-N](http://www.astronautix.com/a/advancedtirosn.html) satellite bus and carry a wide array of instruments. Different data types are transmitted on different frequencies which are listed on the above sources. These satellites transmit reduced resolution images at 137.62 MHz, 137.9125 MHz and 137.10 MHz respectively in an analog image format called [Automatic Picture Transmission (APT)](https://www.sigidwiki.com/wiki/Automatic_Picture_Transmission_(APT)).
 
-![Advanced TIROS-N](/assets/2024-02-09/tiros-n-bus.webp)
+![Advanced TIROS-N](../../assets/fresh-set-of-eyes/tiros-n-bus.webp)
 
 The image signals produced by the three satellites can be received using cheap, DIY hardware. They are low frequency and horizontally polarized, meaning they can be picked up by a simple dipole antenna.
 
