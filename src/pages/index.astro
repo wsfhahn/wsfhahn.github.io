@@ -14,36 +14,280 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Hello, it's nice to meet you!</h1>
-			<p>
-				Welcome to my blog! I'm Will, a software engineer and machine learning enthusiast. On this blog,
-				you'll find me writing about hobby projects, my work, and really just about anything that comes to mind.
+			<h1>Hey there, I'm Will!</h1>
+			<p>I'm a software engineer and machine learning enthusiast based in Raleigh, NC, and this is my blog.
+				I write about my hobbies, personal projects, and just about anything that comes to mind. While you're here,
+				why not play a game of pong?
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			
+			<div class="game-container">
+				<canvas id="pongCanvas" width="800" height="400"></canvas>
+				<div class="game-instructions">
+					<p id="gameInstructions">Move your mouse to control the paddle • Click to start/restart</p>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.game-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 2em 0;
+		gap: 1em;
+	}
+	
+	#pongCanvas {
+		background: black;
+		border-radius: 10px;
+		cursor: none;
+		max-width: 100%;
+		height: auto;
+	}
+	
+	.game-instructions {
+		text-align: center;
+		font-size: 0.9em;
+		opacity: 0.8;
+	}
+	
+	@media (max-width: 720px) {
+		#pongCanvas {
+			width: 100%;
+			max-width: 350px;
+		}
+	}
+</style>
+
+<script>
+	const canvas = document.getElementById('pongCanvas') as HTMLCanvasElement;
+	const ctx = canvas.getContext('2d')!;
+	const instructions = document.getElementById('gameInstructions')!;
+	
+	let gameRunning = false;
+	let mouseY = canvas.height / 2;
+	let touchStartTime = 0;
+	let touchMoved = false;
+	
+	// Check if device is mobile
+	const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+					 ('ontouchstart' in window) || 
+					 (navigator.maxTouchPoints > 0);
+	
+	// Update instructions based on device type
+	if (isMobile) {
+		instructions.textContent = 'Touch and drag to control the paddle • Tap to start/restart';
+	}
+	
+	const game = {
+		ball: {
+			x: canvas.width / 2,
+			y: canvas.height / 2,
+			dx: 5,
+			dy: 3,
+			radius: 8
+		},
+		playerPaddle: {
+			x: 20,
+			y: canvas.height / 2 - 50,
+			width: 10,
+			height: 100
+		},
+		aiPaddle: {
+			x: canvas.width - 30,
+			y: canvas.height / 2 - 50,
+			width: 10,
+			height: 100
+		},
+		playerScore: 0,
+		aiScore: 0
+	};
+	
+	function drawRoundedRect(x: number, y: number, width: number, height: number, radius: number) {
+		ctx.beginPath();
+		ctx.roundRect(x, y, width, height, radius);
+		ctx.fill();
+	}
+	
+	function drawBall() {
+		ctx.fillStyle = 'white';
+		ctx.beginPath();
+		ctx.arc(game.ball.x, game.ball.y, game.ball.radius, 0, Math.PI * 2);
+		ctx.fill();
+	}
+	
+	function drawPaddles() {
+		ctx.fillStyle = 'white';
+		drawRoundedRect(game.playerPaddle.x, game.playerPaddle.y, game.playerPaddle.width, game.playerPaddle.height, 5);
+		drawRoundedRect(game.aiPaddle.x, game.aiPaddle.y, game.aiPaddle.width, game.aiPaddle.height, 5);
+	}
+	
+	function drawScore() {
+		ctx.fillStyle = 'white';
+		ctx.font = '24px Arial';
+		ctx.textAlign = 'center';
+		ctx.fillText(`${game.playerScore} - ${game.aiScore}`, canvas.width / 2, 40);
+	}
+	
+	function updateBall() {
+		game.ball.x += game.ball.dx;
+		game.ball.y += game.ball.dy;
+		
+		if (game.ball.y <= game.ball.radius || game.ball.y >= canvas.height - game.ball.radius) {
+			game.ball.dy = -game.ball.dy;
+		}
+		
+		if (game.ball.x <= game.playerPaddle.x + game.playerPaddle.width + game.ball.radius &&
+			game.ball.y >= game.playerPaddle.y &&
+			game.ball.y <= game.playerPaddle.y + game.playerPaddle.height) {
+			game.ball.dx = -game.ball.dx;
+			const hitPoint = (game.ball.y - game.playerPaddle.y) / game.playerPaddle.height;
+			game.ball.dy = (hitPoint - 0.5) * 8;
+		}
+		
+		if (game.ball.x >= game.aiPaddle.x - game.ball.radius &&
+			game.ball.y >= game.aiPaddle.y &&
+			game.ball.y <= game.aiPaddle.y + game.aiPaddle.height) {
+			game.ball.dx = -game.ball.dx;
+			const hitPoint = (game.ball.y - game.aiPaddle.y) / game.aiPaddle.height;
+			game.ball.dy = (hitPoint - 0.5) * 8;
+		}
+		
+		if (game.ball.x < 0) {
+			game.aiScore++;
+			resetBall();
+		}
+		if (game.ball.x > canvas.width) {
+			game.playerScore++;
+			resetBall();
+		}
+	}
+	
+	function updateAI() {
+		const aiCenter = game.aiPaddle.y + game.aiPaddle.height / 2;
+		const diff = game.ball.y - aiCenter;
+		
+		// Add randomness to AI movement - sometimes it makes mistakes!
+		const randomFactor = (Math.random() - 0.5) * 30; // Random offset of ±15 pixels
+		const aiSpeed = 0.08 + Math.random() * 0.04; // Speed varies between 0.08-0.12
+		const maxAISpeed = 3; // Maximum pixels AI can move per frame - TWEAK THIS VALUE!
+		
+		let aiMovement = 0;
+		
+		// Only move towards ball if it's coming towards AI (makes AI less perfect)
+		if (game.ball.dx > 0) {
+			aiMovement = (diff + randomFactor) * aiSpeed;
+		} else {
+			// When ball is going away, AI moves more slowly back to center
+			const centerY = canvas.height / 2 - game.aiPaddle.height / 2;
+			const centerDiff = centerY - game.aiPaddle.y;
+			aiMovement = centerDiff * 0.02;
+		}
+		
+		// Limit AI movement speed
+		if (aiMovement > maxAISpeed) aiMovement = maxAISpeed;
+		if (aiMovement < -maxAISpeed) aiMovement = -maxAISpeed;
+		
+		game.aiPaddle.y += aiMovement;
+		
+		if (game.aiPaddle.y < 0) game.aiPaddle.y = 0;
+		if (game.aiPaddle.y > canvas.height - game.aiPaddle.height) {
+			game.aiPaddle.y = canvas.height - game.aiPaddle.height;
+		}
+	}
+	
+	function resetBall() {
+		game.ball.x = canvas.width / 2;
+		game.ball.y = canvas.height / 2;
+		game.ball.dx = Math.random() > 0.5 ? 5 : -5;
+		game.ball.dy = (Math.random() - 0.5) * 6;
+	}
+	
+	function gameLoop() {
+		if (!gameRunning) return;
+		
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		
+		updateBall();
+		updateAI();
+		
+		drawBall();
+		drawPaddles();
+		drawScore();
+		
+		requestAnimationFrame(gameLoop);
+	}
+	
+	function updatePaddlePosition(clientY: number) {
+		const rect = canvas.getBoundingClientRect();
+		const scaleY = canvas.height / rect.height;
+		mouseY = (clientY - rect.top) * scaleY;
+		game.playerPaddle.y = mouseY - game.playerPaddle.height / 2;
+		
+		if (game.playerPaddle.y < 0) game.playerPaddle.y = 0;
+		if (game.playerPaddle.y > canvas.height - game.playerPaddle.height) {
+			game.playerPaddle.y = canvas.height - game.playerPaddle.height;
+		}
+	}
+	
+	function startOrRestartGame() {
+		if (!gameRunning) {
+			gameRunning = true;
+			gameLoop();
+		} else {
+			game.playerScore = 0;
+			game.aiScore = 0;
+			resetBall();
+		}
+	}
+	
+	// Mouse events
+	canvas.addEventListener('mousemove', (e) => {
+		if (!isMobile) {
+			updatePaddlePosition(e.clientY);
+		}
+	});
+	
+	canvas.addEventListener('click', () => {
+		if (!isMobile) {
+			startOrRestartGame();
+		}
+	});
+	
+	// Touch events for mobile
+	canvas.addEventListener('touchstart', (e) => {
+		e.preventDefault();
+		if (e.touches.length === 1) {
+			touchStartTime = Date.now();
+			touchMoved = false;
+			const touch = e.touches[0];
+			updatePaddlePosition(touch.clientY);
+		}
+	});
+	
+	canvas.addEventListener('touchmove', (e) => {
+		e.preventDefault();
+		if (e.touches.length === 1) {
+			touchMoved = true;
+			const touch = e.touches[0];
+			updatePaddlePosition(touch.clientY);
+		}
+	});
+	
+	canvas.addEventListener('touchend', (e) => {
+		e.preventDefault();
+		const touchDuration = Date.now() - touchStartTime;
+		
+		// Only start/restart if it was a quick tap (< 200ms) and didn't move much
+		if (!touchMoved && touchDuration < 200) {
+			startOrRestartGame();
+		}
+	});
+	
+	drawBall();
+	drawPaddles();
+	drawScore();
+</script>
