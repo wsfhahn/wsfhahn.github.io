@@ -189,7 +189,7 @@ With the infrastructure set up and tested, I began working on the data generator
 
 I started by laying out the rough requirements which would be used to design the server.
 
-Firstly, I mandated that I would avoid any unnecessary complexity by all means necessary. While it can be tempting to take shortcuts, doing so risks accumulating technical debt, or worse yet the gods cursing you with an unsatisfactory harvest. Things break, and I knew that changes would need to be made, so the code would need to be readable and workable from the start.
+First, I mandated that I would avoid any unnecessary complexity by all means necessary. While it can be tempting to take shortcuts, doing so risks accumulating technical debt, or worse yet the gods cursing you with an unsatisfactory harvest. Things break, and I knew that changes would need to be made, so the code would need to be readable and workable from the start.
 
 Second, the server needed to operate asynchronously. Synthetic data generation runs can take a long time, and eventually, I get bored and close my laptop. When that happens, the request should not be dropped, and the server should continue generating.
 
