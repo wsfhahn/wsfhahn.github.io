@@ -1,7 +1,7 @@
 ---
 title: 'Neo: Synthetic Data Generation at Home'
 description: ''
-pubDate: 'Apr 11 2026'
+pubDate: 'Apr 19 2026'
 heroImage: '../../assets/neo/pascals_triangle.png'
 ---
 
