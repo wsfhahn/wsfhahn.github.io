@@ -9,11 +9,11 @@ heroImage: '../../assets/neo/pascals_triangle.png'
 
 ## Introduction
 
-Since the dawn of ChatGPT, I've been fascinated by the process of training large language models at home. Nowadays, this process is fairly well documented, and it can be achieved with a reasonable amount of effort within a week (especially for particularly small models, below the 1B range). There are many architectures to choose from, such as Qwen and Llama, and you can even derive your own architecture if you choose.
+Since the dawn of ChatGPT, I've been fascinated by the process of training large language models at home. While the process of training a model is fairly well documented, obtaining high-quality, domain-specific data for training remains a barrier for DIYers like myself. Many niche datasets contain questionable content, broken formatting, and other artifacts which reduce the viability of small models trained on them. As a result, much of the process's complexity and difficulty is offloaded to the mid-training and post-training stages, reducing the performance and predictability of the resultant model.
 
-While the model architecture and size are important, training on high quality data is still king. The architecture and size determine the theoretical ceiling of a model's capabilities, but the data determines where the model's performance will land within the theoretical bounds.
+Thus, in this project, I set out to build a synthetic data generation system for churning out steerable, auditable, pure data to train my own models. If all goes well, I'll have high quality data on demand, and I'll be able to train small language models which benchmark higher, remain coherent in my intended domains, and can be iterated on rapidly.
 
-In this blog post, I will cover my journey of building a simple yet robust synthetic data generation pipeline at home, which I will use at a later time to generate data to train my own language model.
+In this post, I will begin by covering the key concepts and terminology involved, document the process of designing the system, and wrap up with a tutorial on how to deploy my system on your own hardware.
 
 ## Offline Distillation
 
