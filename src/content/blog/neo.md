@@ -5,7 +5,7 @@ pubDate: 'Apr 19 2026'
 heroImage: '../../assets/neo/pascals_triangle.png'
 ---
 
-> The accompanying GitHub repository for this post will be made available soon.
+> The accompanying GitHub repository for this post can be found [here](https://github.com/wsfhahn/neo).
 
 ## Introduction
 
