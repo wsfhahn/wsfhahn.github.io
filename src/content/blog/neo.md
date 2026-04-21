@@ -11,7 +11,7 @@ heroImage: '../../assets/neo/pascals_triangle.png'
 
 Since the dawn of ChatGPT, I've been fascinated by the process of training large language models at home. While the process of training a model is fairly well documented, obtaining high-quality, domain-specific data for training remains a barrier for DIYers like myself. Many niche datasets contain questionable content, broken formatting, and other artifacts which reduce the viability of small models trained on them. As a result, much of the process's complexity and difficulty is offloaded to the mid-training and post-training stages, reducing the performance and predictability of the resultant model.
 
-Thus, in this project, I set out to build a synthetic data generation system for churning out steerable, auditable, pure data to train my own models. If all goes well, I'll have high quality data on demand, and I'll be able to train small language models which benchmark higher, remain coherent in my intended domains, and can be iterated on rapidly.
+After running into this problem head-on, I set out to build a synthetic data generation system for churning out steerable, auditable, pure data to train my own models. If all goes well, I'll have high quality data on demand, and I'll be able to train small language models which benchmark higher, remain coherent in my intended domains, and can be iterated on rapidly.
 
 In this post, I will begin by covering the key concepts and terminology involved, document the process of designing the system, and wrap up with a tutorial on how to deploy my system on your own hardware.
 
