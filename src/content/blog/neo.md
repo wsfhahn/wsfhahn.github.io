@@ -179,6 +179,16 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
+#### A Note on Hardware Selection
+
+There is frequent debate on the internet about the best hardware to use to run local large language models. My understanding is that Apple Silicon machines (particularly the MacBook Pro and the Mac Studio) offer the best bang for your buck in terms of memory for most applications.
+
+For the price, Apple Silicon machines running the Max and Ultra variants are highly capable for low-concurrency applications. GPUs running on custom rigs offer higher raw throughput with higher request concurrency (e.g. parallelizing 20 requests at once), but building a machine with enough memory to run a 70-billion parameter model quantized to 8-bit will cost you as much as a used car.
+
+Since I'm not looking to replace my current machine for this project, I ran this project on my daily driver machine, an M2 Max-equipped Mac Studio with 96GB Unified Memory. I purchased this machine a while ago, and the memory spec is in the sweet spot for capable local models, although throughput is limited for larger dense models.
+
+[MLX](https://github.com/ml-explore/mlx-lm) is another highly capable alternative to llama.cpp, which is optimized for use on Apple Silicon. While I have used MLX in the past, I have found that llama.cpp implements new architectures quicker due to its massive community of contributors.
+
 ## The Meat and Potatoes
 
 ![Engineers working with computing equipment](../../assets/neo/engineers.jpeg)
