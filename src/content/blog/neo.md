@@ -634,7 +634,7 @@ While the Neo server is functional and ready for generating data, there are more
 - ✅ Create a new endpoint for bulk saving and loading jobs
 - ✅ Add support for automatic saving with a shutdown task
 - ✅ Add support for automatic loading on startup
-- [ ] Capture reasoning traces with responses
+- ✅ Capture reasoning traces with responses
 - [ ] Include tool calls and structured output in the generation pipeline
 - [ ] Add support for `parquet` for export for tighter integration with data loaders
 - [ ] Package into a Python library which can be installed with `uv`
