@@ -117,7 +117,7 @@ cmake --build build --config Release -j12 # replace -j12 with -j[your processor'
 Then, with the project built, I moved on to quantizing the model. Sorry, Gemma.
 
 ```bash
-./build/bin/llama-quantize /Volumes/Data/gemma-4-26B-A4B-it.gguf /Volumes/Data/gemma-4-A4B-it-Q8_0.gguf Q8_0
+./build/bin/llama-quantize /Volumes/Data/gemma-4-26B-A4B-it.gguf /Volumes/Data/gemma-4-26B-A4B-it-Q8_0.gguf Q8_0
 ```
 
 After the command finished, the model was compressed and ready to run!
