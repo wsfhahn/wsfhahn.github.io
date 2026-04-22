@@ -631,7 +631,7 @@ That covers all of the endpoints currently supported by the Neo server.
 While the Neo server is functional and ready for generating data, there are more features that I would like to add in coming days and weeks. I will update this post as bugs are patched and additional features are added.
 
 - [ ] Create a new endpoint for deleting jobs
-- [ ] Create a new endpoint for bulk saving and loading jobs
+- ✅ Create a new endpoint for bulk saving and loading jobs
 - ✅ Add support for automatic saving with a shutdown task
 - ✅ Add support for automatic loading on startup
 - [ ] Capture reasoning traces with responses
